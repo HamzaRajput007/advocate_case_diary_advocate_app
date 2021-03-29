@@ -14,22 +14,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Click below image to select your profile picture"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:id="@+id/selectImageTextViewID"
-                android:textSize="12dp"/>
+                android:textSize="24dp"
+                android:textColor="@color/grey_dark"
+                android:text="ADD ADVOCATES"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
                 android:layout_width="96dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/profile_pic_placeholder"
                 android:layout_height="96dp"
-                android:layout_margin="20dp"
                 android:layout_gravity="center_horizontal"
                 app:civ_border_width="2dp"
                 app:civ_border_color="#FF000000"/>
@@ -37,17 +39,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="32dp"
-                android:textColor="@color/grey_dark"
-                android:text="ADD ADVOCATES"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"/>
+                android:text="Click below image to select your profile picture"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/selectImageTextViewID"
+                android:textSize="12dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
                 android:id="@+id/advocateNameID"
                 android:background="@drawable/edit_text_bg"
                 android:hint="NAME*"
@@ -56,8 +60,11 @@
             <EditText
                 android:id="@+id/EMAILNameID"
                 android:layout_width="match_parent"
+                android:ems="10"
                 android:layout_height="50dp"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/edit_text_bg"
                 android:hint="EMAIL*"
                 android:inputType="textEmailAddress"
@@ -67,16 +74,35 @@
                 android:id="@+id/advocatePasswordId"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/edit_text_bg"
                 android:hint="Password*"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:paddingLeft="20dp" />
 
             <EditText
                 android:layout_width="match_parent"
+                android:ems="10"
                 android:layout_height="50dp"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="phone"
+                android:id="@+id/phoneNumberID"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Phone*"
+                android:paddingLeft="20dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:layout_marginBottom="10dp"
                 android:inputType="textPhonetic"
                 android:id="@+id/cnicNameID"
                 android:background="@drawable/edit_text_bg"
@@ -86,7 +112,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:layout_marginBottom="10dp"
                 android:id="@+id/cityNameID"
                 android:background="@drawable/edit_text_bg"
                 android:hint="CITY*"
@@ -100,7 +129,11 @@
                     android:id="@+id/experienceNameID"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
-                    android:layout_margin="20dp"
+                    android:ems="10"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/edit_text_bg"
                     android:hint="EXPERIENCE*"
                     android:paddingLeft="20dp" />
@@ -109,16 +142,28 @@
                     android:id="@+id/educationNameID"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
-                    android:layout_margin="20dp"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/edit_text_bg"
                     android:hint="EDUCATION"
                     android:paddingLeft="20dp" />
             </LinearLayout>
 
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:id="@+id/progressBar"/>
+
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/addAdvocateBtnId"
+                android:ems="10"
                 android:text="Submit"
                 android:background="@drawable/btn_bg"
                 android:textColor="@color/white"

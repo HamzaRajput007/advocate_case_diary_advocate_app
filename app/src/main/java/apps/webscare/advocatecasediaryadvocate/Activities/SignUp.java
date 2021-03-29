@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,9 +32,10 @@ public class SignUp extends AppCompatActivity {
 
     ImageView profilePictreImageView;
     int PICK_IMAGE = 1;
-    EditText nameEt , emailET , cityET , experienceEt , cnicET , educationET , passwordET;
+    EditText nameEt , emailET , phoneET , cityET , experienceEt , cnicET , educationET , passwordET;
     Button submitBtn;
     TextView selectProfileImageText;
+    ProgressBar progressBar;
 
     FirebaseAuth mAuth;
     FirebaseFirestore firebaseFirestore;
@@ -51,7 +53,7 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -64,6 +66,8 @@ public class SignUp extends AppCompatActivity {
         educationET = findViewById(R.id.educationNameID);
         passwordET = findViewById(R.id.advocatePasswordId);
         submitBtn = findViewById(R.id.addAdvocateBtnId);
+        phoneET = findViewById(R.id.phoneNumberID);
+        progressBar = findViewById(R.id.progressBar);
         selectProfileImageText  = findViewById(R.id.selectImageTextViewID);
         profilePictreImageView = findViewById(R.id.profile_image);
         profilePictreImageView.setOnClickListener(new View.OnClickListener() {
@@ -79,17 +83,21 @@ public class SignUp extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 if (nameEt.getText().toString().isEmpty()
                         || emailET.getText().toString().isEmpty()
                         || cityET.getText().toString().isEmpty()
                         || experienceEt.getText().toString().isEmpty()
                         || passwordET.getText().toString().isEmpty()
+                        || phoneET.getText().toString().isEmpty()
                         || cnicET.getText().toString().isEmpty()){
                     nameEt.setError("This Field is Required");
                     emailET.setError("This Field is Required");
                     cityET.setError("This Field is Required");
                     cnicET.setError("This Field is Required");
                     experienceEt.setError("This Field is Required");
+                    phoneET.setError("This Field is Required");
+                    progressBar.setVisibility(View.GONE);
                 } else  {
                     final Map<String , Object> advocateDataMap = new HashMap<>();
                     advocateDataMap.put("name" , nameEt.getText().toString());
@@ -97,6 +105,8 @@ public class SignUp extends AppCompatActivity {
                     advocateDataMap.put("city" , cityET.getText().toString());
                     advocateDataMap.put("experience" , experienceEt.getText().toString());
                     advocateDataMap.put("cnic" , cnicET.getText().toString());
+                    advocateDataMap.put("phone_number" , phoneET.getText().toString());
+                    advocateDataMap.put("type" , "advocate");
 
                     mAuth.createUserWithEmailAndPassword(emailET.getText().toString() , passwordET.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -114,6 +124,7 @@ public class SignUp extends AppCompatActivity {
                                         cityET.setText("");
                                         experienceEt.setText("");
                                         educationET.setText("");
+                                        progressBar.setVisibility(View.GONE);
                                         Toast.makeText(SignUp.this, "Advocate Registered Successfully", Toast.LENGTH_SHORT).show();
                                         Intent toMain = new Intent(SignUp.this , MainActivity.class);
                                         startActivity(toMain);
@@ -123,6 +134,7 @@ public class SignUp extends AppCompatActivity {
                             }
                         }
                     });
+                    progressBar.setVisibility(View.VISIBLE);
                 }
             }
         });
