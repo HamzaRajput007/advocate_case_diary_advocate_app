@@ -1,6 +1,5 @@
-package apps.webscare.advocatecasediaryadvocate.Activities;
+package apps.advocatecasediary.advocatecasediaryadvocate.Activities;
 
-import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-import apps.webscare.advocatecasediaryadvocate.R;
+import apps.advocatecasediary.advocatecasediaryadvocate.R;
 
 public class SignUp extends AppCompatActivity {
 
@@ -126,7 +125,7 @@ public class SignUp extends AppCompatActivity {
                                         educationET.setText("");
                                         progressBar.setVisibility(View.GONE);
                                         Toast.makeText(SignUp.this, "Advocate Registered Successfully", Toast.LENGTH_SHORT).show();
-                                        Intent toMain = new Intent(SignUp.this , MainActivity.class);
+                                        Intent toMain = new Intent(SignUp.this , apps.webscare.advocatecasediaryadvocate.Activities.MainActivity.class);
                                         startActivity(toMain);
                                         finish();
                                     }
