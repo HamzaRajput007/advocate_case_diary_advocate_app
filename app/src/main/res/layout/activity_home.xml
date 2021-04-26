@@ -6,14 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".Activities.Home">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/caseFileBtnId"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HOME"
-        android:textSize="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/blue_btn_bg"
+        android:text=" + File A New Case"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Your Filed Cases : "
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/caseFileBtnId"
+        app:layout_constraintTop_toBottomOf="@+id/caseFileBtnId" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/casesListRecyclerViewId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

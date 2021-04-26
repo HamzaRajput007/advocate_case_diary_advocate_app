@@ -1,4 +1,4 @@
-package apps.webscare.advocatecasediaryadvocate.Activities;
+ package apps.webscare.advocatecasediaryadvocate.Activities;
 
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
