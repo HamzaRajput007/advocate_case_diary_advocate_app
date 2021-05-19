@@ -1,4 +1,4 @@
-package apps.webscare.advocatecasediaryadvocate.Activities;
+package apps.advocatecasediary.advocate.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;

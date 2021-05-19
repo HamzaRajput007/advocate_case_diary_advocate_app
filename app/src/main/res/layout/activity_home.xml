@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Home">
+    android:theme="@style/Theme2"
+    tools:context="apps.advocatecasediary.advocate.Activities.Home">
 
     <Button
         android:id="@+id/caseFileBtnId"
@@ -28,6 +29,25 @@
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/caseFileBtnId"
+        app:layout_constraintTop_toBottomOf="@+id/caseFileBtnId" />
+
+    <Button
+        android:id="@+id/sendSmsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send SMS"
+        app:layout_constraintBottom_toTopOf="@+id/casesListRecyclerViewId"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/caseFileBtnId" />
+
+    <Button
+        android:id="@+id/sendSmsBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send SMS"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/casesListRecyclerViewId"
+        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/caseFileBtnId" />
 
     <androidx.recyclerview.widget.RecyclerView

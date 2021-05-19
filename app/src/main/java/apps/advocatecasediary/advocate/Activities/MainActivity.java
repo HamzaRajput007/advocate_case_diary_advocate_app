@@ -1,4 +1,4 @@
-package apps.webscare.advocatecasediaryadvocate.Activities;
+package apps.advocatecasediary.advocate.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText emailET  , passwordET;
     Button btnLogin;
-    TextView signUpBtn;
+    TextView signUpBtn , forgotPasswordTv;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
     FirebaseFirestore mFirestore;
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
         emailET = findViewById(R.id.emailEditTextID);
+        forgotPasswordTv = findViewById(R.id.forgotPasswordTextViewId);
         passwordET = findViewById(R.id.passwordEditTextID);
         signUpBtn = findViewById(R.id.signUpTextViewId);
         btnLogin = findViewById(R.id.loginBtnID);
@@ -50,6 +51,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent toSignup = new Intent(MainActivity.this , SignUp.class);
                 startActivity(toSignup);
+            }
+        });
+
+        forgotPasswordTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toForgotPasswod = new Intent(MainActivity.this, ForgotPassword.class);
+                if(TextUtils.isEmpty(emailET.getText().toString())){
+                    emailET.setError("Enter Your Email Here !");
+                }else{
+                    toForgotPasswod.putExtra("email" , emailET.getText().toString());
+                    startActivity(toForgotPasswod);
+                }
+
             }
         });
 

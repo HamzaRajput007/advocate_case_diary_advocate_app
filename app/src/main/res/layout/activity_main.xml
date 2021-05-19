@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MainActivity">
+    tools:context="apps.advocatecasediary.advocate.Activities.MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -77,6 +77,15 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:inputType="textPassword" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/forgotPasswordTextViewId"
+            android:text="Forgot Password "
+            android:textColor="@color/colorPrimary"
+            android:clickable="true"
+            android:layout_marginBottom="10dp"/>
 
         <ProgressBar
             android:layout_width="wrap_content"

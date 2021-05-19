@@ -1,4 +1,4 @@
-package apps.webscare.advocatecasediaryadvocate.Models;
+package apps.advocatecasediary.advocate.Models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

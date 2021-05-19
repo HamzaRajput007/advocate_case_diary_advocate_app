@@ -1,6 +1,5 @@
-package apps.webscare.advocatecasediaryadvocate.Activities;
+package apps.advocatecasediary.advocate.Activities;
 
-import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,8 +57,8 @@ public class SignUp extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        nameEt = findViewById(R.id.advocateNameID);
-        emailET = findViewById(R.id.EMAILNameID);
+        nameEt = findViewById(R.id.advocateNameIDSettings);
+        emailET = findViewById(R.id.EMAILNameIDSettings);
         cityET = findViewById(R.id.cityNameID);
         experienceEt = findViewById(R.id.experienceNameID);
         cnicET = findViewById(R.id.cnicNameID);

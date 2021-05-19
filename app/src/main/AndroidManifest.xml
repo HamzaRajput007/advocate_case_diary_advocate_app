@@ -9,9 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Home"></activity>
-        <activity android:name=".Activities.SignUp" />
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name="apps.advocatecasediary.advocate.Activities.ForgotPassword"></activity>
+        <activity android:name="apps.advocatecasediary.advocate.Activities.DownloadSchedule" />
+        <activity android:name="apps.advocatecasediary.advocate.Activities.Settings" />
+        <activity
+            android:name="apps.advocatecasediary.advocate.Activities.Home"
+            android:label="HOME"
+            android:theme="@style/Theme2" />
+        <activity android:name="apps.advocatecasediary.advocate.Activities.SignUp" />
+        <activity android:name="apps.advocatecasediary.advocate.Activities.CaseRegistration" />
+        <activity android:name="apps.advocatecasediary.advocate.Activities.Splash" />
+        <activity android:name="apps.advocatecasediary.advocate.Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,5 +27,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
 </manifest>

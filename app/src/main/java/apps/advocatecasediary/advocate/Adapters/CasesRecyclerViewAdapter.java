@@ -1,4 +1,4 @@
-package apps.webscare.advocatecasediaryadvocate.Adapters;
+package apps.advocatecasediary.advocate.Adapters;
 
 import android.appwidget.AppWidgetHost;
 import android.content.Context;
@@ -11,7 +11,9 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import apps.webscare.advocatecasediaryadvocate.Models.CaseModel;
+
+import apps.advocatecasediary.advocate.Models.CaseModel;
+import apps.advocatecasediary.advocate.Adapters.CasesRecyclerViewAdapter;
 import apps.webscare.advocatecasediaryadvocate.R;
 
 public class CasesRecyclerViewAdapter extends RecyclerView.Adapter<CasesRecyclerViewAdapter.CaseViewHolder> {
