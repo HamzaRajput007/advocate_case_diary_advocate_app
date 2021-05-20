@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,7 +41,6 @@ public class Home extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseFirestore firebaseFirestore;
-    Button sendSmsBtn;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,6 +59,10 @@ public class Home extends AppCompatActivity {
             case R.id.downloadScheduleItemId:
                 Intent toDonwloadScheule = new Intent(Home.this, DownloadSchedule.class);
                 startActivity(toDonwloadScheule);
+                return true;
+            case R.id.aboutUsMenuItemId:
+                Intent toAboutUs = new Intent(Home.this, AboutUs.class);
+                startActivity(toAboutUs);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -95,13 +99,7 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        sendSmsBtn = findViewById(R.id.sendSmsButton);
-        sendSmsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendSMSMessage("+923046282866" , "Sms From Advocate Case Diary");
-            }
-        });
+
         firebaseFirestore.collection("Cases Registered").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -155,7 +153,7 @@ public class Home extends AppCompatActivity {
         }
     }*/
     public void sendSMSMessage(String phoneNo, String msg) {
-        try {
+       /* try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(phoneNo, null, msg, null, null);
             Toast.makeText(getApplicationContext(), "Message Sent",
@@ -164,6 +162,18 @@ public class Home extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),ex.getMessage().toString(),
                     Toast.LENGTH_LONG).show();
             ex.printStackTrace();
-        }
+        }*/
+
+
+        //Getting intent and PendingIntent instance
+        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+        PendingIntent pi= PendingIntent.getActivity(getApplicationContext(), 0, intent,0);
+
+        //Get the SmsManager instance and call the sendTextMessage method to send message
+        SmsManager sms=SmsManager.getDefault();
+        sms.sendTextMessage(phoneNo, null, msg, pi,null);
+
+        Toast.makeText(getApplicationContext(), "Message Sent successfully!",
+                Toast.LENGTH_LONG).show();
     }
 }

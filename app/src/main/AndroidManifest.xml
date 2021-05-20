@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="apps.advocatecasediary.advocate.Activities.ForgotPassword"></activity>
+        <activity android:name="apps.advocatecasediary.advocate.Activities.AboutUs"
+            android:theme="@style/Theme2"
+            android:label="About Us"></activity>
+        <activity android:name="apps.advocatecasediary.advocate.Activities.ForgotPassword" />
         <activity android:name="apps.advocatecasediary.advocate.Activities.DownloadSchedule" />
         <activity android:name="apps.advocatecasediary.advocate.Activities.Settings" />
         <activity
@@ -18,15 +21,18 @@
             android:theme="@style/Theme2" />
         <activity android:name="apps.advocatecasediary.advocate.Activities.SignUp" />
         <activity android:name="apps.advocatecasediary.advocate.Activities.CaseRegistration" />
-        <activity android:name="apps.advocatecasediary.advocate.Activities.Splash" />
-        <activity android:name="apps.advocatecasediary.advocate.Activities.MainActivity">
+        <activity android:name="apps.advocatecasediary.advocate.Activities.Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="apps.advocatecasediary.advocate.Activities.MainActivity">
+
+        </activity>
     </application>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <uses-permission android:name="android.permission.SEND_SMS" />
 
